@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4575133 */
+  src: url('iconfont.ttf?t=1717569355995') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sousuo:before {
+  content: "\e62f";
+}
+
+.icon-zuixin:before {
+  content: "\e638";
+}
+
+.icon-weixindenglu:before {
+  content: "\e606";
+}
+
+.icon-zuire:before {
+  content: "\e74f";
+  position: relative;
+  z-index: 1;
+}
+
+.icon-dengluchenggong:before {
+  content: "\e6bb";
+}
+
+.icon-vip:before {
+  content: "\e873";
+}
+
+.icon-pay_success:before {
+  content: "\e600";
+}
+
+.icon-shaolugongju:before {
+  content: "\e6b3";
+}
+
+.icon-activeNbs:before{
+  content: "\e601";
+}

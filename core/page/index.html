@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>小i助手</title>
+  <link rel="stylesheet" href="../static/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/fonts/iconfont.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/public.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/page/index.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="w-100"></div>
+    <div class="row h-100 rowWrap">
+      <!-- 左侧导航栏-->
+      <div class="col-3 py-2  navBatWrap position-relative" >
+        <ul class="list-group">
+          <li class="list-group-item disabled">
+              <div class="p-2 d-flex justify-content-center align-items-center drag">
+                <img class="logoImg" src="../static/images/logo.ico"> <span class="spacing fs-3">小i助手</span>
+              </div>
+          </li>
+          <li class="list-group-item">
+            <div class="nav-item  px-2 py-1 d-flex justify-content-between align-items-center ">
+              <div class="col-10 d-flex searchWrap margonR5">
+                <input class="col-9 " type="text">
+                <button class="col-3  btn btn-primary"> 搜索</button>
+              </div>
+                <button style="margin: 0" class="col-2 h-100 iconfont icon-activeNbs btn btn-primary" id="activationCodeBut"></button>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="nav-item  px-2 py-1 d-flex justify-content-center align-items-center ">
+              <div class="position-relative margonR10">
+                <i class="iconfont icon-weixindenglu fs-4 loginBut pointer" id="loginBut" ></i>
+                <i class="iconfont icon-dengluchenggong fs-4 pointer userInfoDes-text" id="loginButSuc"></i>
+                <i class="vipIcon position-absolute iconfont icon-vip pointer" id="vipIcon"></i>
+              </div>
+              <div class="userInfoDes">
+                <div class="userInfoDes-text fs-6">
+                  <div><span class="iconMarginLeft_lable">张三</span><span id="cutLoginBut">【切换】</span><span id="personalBut">【修改】</span></div>
+<!--                  <hr class="m-2">-->
+                  <div class="my-1"><span class="iconMarginLeft_lable">普通会员</span><span class="upgradeBut">【权益】</span><span class="upgradeBut">【升级】</span></div>
+                </div>
+                <div class="userInfoDes-textHint fs-5" >
+                  未登录,去<span class="loginBut text-danger pointer">登录</span>
+<!--                  <span class="marginX3">/</span><span class="text-danger pointer">注册</span>-->
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item cutList" data-type="1">
+            <div class="nav-item py-1 d-flex justify-content-center align-items-center">
+              <div class="col-4 d-flex justify-content-center iconMarginLeft">
+                <i class="iconfont icon-zuixin fs-2 "></i>
+              </div>
+              <span class="fs-5">最新烧录</span>
+            </div>
+          </li>
+          <li class="list-group-item cutList" data-type="2">
+            <div class="nav-item py-1 d-flex justify-content-center align-items-center">
+              <div class="col-4 d-flex justify-content-center iconMarginLeft">
+                <i class="iconfont icon-zuire fs-2 text-danger margonR5"></i>
+              </div>
+              <span class="fs-5">最热烧录</span>
+            </div>
+          </li>
+        </ul>
+      <!--  版本号 and 更新-->
+        <div class="position-absolute version-wrap py-2 border-top size85Rem"><span class="text-secondary "> V.20240617</span> <span class="text-secondary underline pointer" id="upVersionsBut" onclick="detectioUpdate()">升级</span></div>
+      </div>
+      <!-- 内容-->
+      <div class="col-9 p-2 h-100">
+        <div class=" w-100 contentWrap">
+          <div class="contentWrap-item card">
+            <div class="w-100 itemImg-wrap position-relative">
+              <img class="h-100 w-100" src="../static/images/1717579189494.jpg">
+              <div class="burn-mask w-100 h-100 position-absolute justify-content-center align-items-center flex-column">
+                <div class="but-circleBut d-flex justify-content-center align-items-center flex-column burnOpen">
+                  <p class="iconfont icon-shaolugongju text-white fs-4"></p>
+                  <p class="text-white  burn-text fs-5">烧录</p>
+                </div>
+              </div>
+            </div>
+            <div class="w-100 itemImg-text">
+              <p class="fontBold fs-5">微控键鼠</p>
+              <p class="text_p fs-6">创建可拖拽区域时，拖拽行为可能与文本选择相冲突。 例如，当您拖动标题栏时，您可能不小心选中其中的文本。 为了避免这种情况，您需要在可拖拽区域中禁用文本选择，像这样：</p>
+            </div>
+          </div>
+        </div>
+        <div class="navWrap marginT15">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center fs-6">
+              <li class="page-item ">
+                <span class="page-link pageNum" data-num="-" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </span>
+              </li>
+              <li class="page-item"><span class="page-link pageNum " data-num="1">1</span></li>
+              <li class="page-item"><span class="page-link pageNum" data-num="2">2</span></li>
+              <li class="page-item"><span class="page-link pageNum" data-num="3">3</span></li>
+              <li class="page-item">
+                <span class="page-link pageNum" data-num="+" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </span>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- 登录 弹窗-->
+      <div class="modal" id="loginModal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">登录</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center flex-column align-center">
+              <ul class="nav nav-tabs" id="navTabs">
+                <li class="nav-item " data-type="wx-loginContent">
+                  <span class="nav-link active" aria-current="page" href="#">微信登录</span>
+                </li>
+                <li class="nav-item" data-type="phone-loginContent">
+                  <span class="nav-link" href="#">手机号登录</span>
+                </li>
+              </ul>
+              <div class="loginContent wx-loginContent flex-column align-center w-100">
+                <img class="logoCode" src="../static/images/logoCode.png" alt="登录二维码">
+                <p class="text-center marginT10">微信扫码关注公众号完成登录</p>
+                <button class="marginT10 btn btn-primary" onclick="loginSuc()" >登录测试(点击直接登录)</button>
+              </div>
+              <div class="loginContent phone-loginContent showNone flex-column w-100">
+                <div class="row mb-2 d-flex align-items-center mt-3" style="flex-wrap: nowrap">
+                  <label class="col-sm-2 col-form-label">
+                    <span>手机号 :</span>
+                    <p class="loginPhoneHint showNone">&nbsp;</p>
+                  </label>
+                  <div class="col-sm-7">
+                    <input id="loginPhone" type="text" class="form-control">
+                    <p class="loginPhoneHint loginPhoneHintText showNone"></p>
+                  </div>
+                  <div class="col-sm-3 marginL10" style="margin-left: 8px">
+                    <button class="btn btn-primary" onclick="getPhoneCode('loginPhone')">获取验证码</button>
+                    <p class="loginPhoneHint showNone">&nbsp;</p>
+                  </div>
+                </div>
+                <div class="row mb-3 d-flex align-items-center">
+                  <label class="col-sm-2 col-form-label">
+                    <span>验证码 :</span>
+                    <p class="loginPhoneCodeHint showNone">&nbsp;</p>
+                  </label>
+                  <div class="col-sm-7">
+                    <input id="loginPhoneCode" type="text" class="form-control">
+                    <p class="loginPhoneCodeHint loginPhoneCodeHintText showNone">&nbsp;</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button class="btn btn-primary w-50" onclick="loginPhoneSuc()">登录</button>
+                  <p class="loginPhoneCodeHint showNone">&nbsp;</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 烧录弹窗 -->
+      <div class="modal" id="burnModal">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">烧录</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="w-100 d-flex burnProduct px-3 marginY20">
+              <div class="burnProduct-img margonR10">
+                <img class="h-100 w-100" src="../static/images/1717579189494.jpg">
+              </div>
+              <div>
+                <p class="fontBold fs-5">微控键鼠:【型号】【规格】</p>
+                <div class="fs-6" style="height: 35%;width: 100%;overflow: hidden">创建可拖拽区域时，拖拽行为可能与文本选择相冲突。 例如，当您拖动标题栏时，您可能不小心选中其中的文本。 为了避免这种情况，您需要在可拖拽区域中禁用文本选择，像这样</div>
+                <div id="burnHint" class="fs-6 d-flex align-end justify-content-between" style="height: 25%;width: 100%;overflow: hidden">
+                  <div id="burnHintText">烧录成功</div>
+                  <button class="btn btn-primary" onclick="openlogIng()">详细日志</button>
+                </div>
+                <div class="progress marginT10">
+                  <div id="burnProgressBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">0%</div>
+                </div>
+              </div>
+            </div>
+            <div class="burnValWrap modal-body d-flex justify-content-center flex-column align-center">
+              <div class="d-flex burnIngWrap w-100 position-relative z-3">
+                <div class="activeInp-wrap">
+                  <div class="d-flex align-items-center">
+                    <input type="text" class="form-control fs-6" id="activeInp" placeholder="我有激活码">
+                    <button type="button" class="btn btn-primary" id="activeInpBut">激活</button>
+                  </div>
+                </div>
+                <div class="burnValWrap">
+                  <select id="seCOM" class="form-select fs-6 ">
+                    <option value="0" selected disabled>请选择串口号</option>
+                    <option value="COM1">COM1</option>
+                    <option value="COM2">COM2</option>
+                    <option value="COM3">COM3</option>
+                    <option value="COM4">COM4</option>
+                  </select>
+                </div>
+                <div class="burnValWrap">
+                  <div class="d-flex align-items-center position-relative">
+                    <input id="seBaudRate" type="text" class="form-select fs-6 position-relative z-3" placeholder="请填写波特率">
+                    <select id="seBaudRateSel" class="form-select fs-6 position-absolute z-2 " onchange="changeBurnBaudRate(this.options[this.options.selectedIndex].value)">
+                      <option value="2400">2400</option>
+                      <option value="3600">3600</option>
+                      <option value="4800">4800</option>
+                      <option value="9600">9600</option>
+                    </select>
+                    <button id="burnStartBut" type="button" class="btn btn-primary" >烧录</button>
+                  </div>
+                </div>
+                <div class="installValWrap">
+                  <input type="text" class="form-control fs-6" id="installIPInp" placeholder="请填写IP">
+                </div>
+                <div class="installValWrap">
+                  <input type="text" class="form-control fs-6" id="installAccountInp" placeholder="请填写账号">
+                </div>
+                <div class="installValWrap ">
+                  <div class="d-flex align-items-center">
+                    <input type="text" class="form-control fs-6" id="installPwdInp" placeholder="请填写密码">
+                    <button id="executeStartBut" type="button" class="btn btn-primary" >执行</button>
+                  </div>
+                </div>
+              </div>
+              <div class="w-100 burn-content marginT15 d-flex justify-content-between align-content-center">
+                <div id="burnFreePriceWrap" class="card burn-priceWrap burn-active d-flex justify-content-center flex-column align-items-center" data-price="0">
+                  <p>免费绑定</p>
+                  <p class="burn-money">￥ <span class="burn-price">0</span></p>
+                  <p class="burn-priceOk lineThrough">￥15</p>
+                </div>
+                <div id="onceCard" class="card burn-priceWrap flex justify-content-center flex-column align-items-center" data-price="15">
+                  <p>单次烧录</p>
+                  <p class="burn-money">￥ <span class="burn-price">15</span></p>
+                  <p class="burn-priceOk lineThrough">￥249</p>
+                </div>
+                <div class="card showNone substitution substitution1 flex justify-content-center flex-column align-items-center">
+                  <img style="width: 100%;height: 100%" src="../static/images/1717579189494.jpg" >
+                </div>
+                <div id="memberCard" class="card burn-priceWrap flex justify-content-center flex-column align-items-center" data-price="99">
+                  <p>会员</p>
+                  <p class="burn-money">￥ <span class="burn-price">99</span></p>
+                  <p class="burn-priceOk lineThrough">￥499</p>
+                </div>
+                <div class="card showNone substitution substitution2 flex justify-content-center flex-column align-items-center">
+                  <img style="width: 100%;height: 100%" src="../static/images/1717579189494.jpg" >
+                </div>
+
+                <div id="payCode" class="card iotWrap d-flex justify-content-center flex-column align-items-center">
+                  <p id="payPriceTitle">&nbsp;</p>
+                  <img onclick="burnOk()" src="../static/images/logoCode.png" alt="">
+                  <p id="payPriceText">扫码绑定IOT</p>
+                  <p id="payPrice">&nbsp;</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 会员弹窗 -->
+      <div class="modal" id="payModal">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">会员</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center flex-column align-center">
+              <div class="w-100 pay-content  burn-content marginT15 d-flex justify-content-center align-content-center">
+                <div class="card pay-priceWrap burn-active d-flex justify-content-center flex-column align-items-center " data-price="0">
+                  <p class="fs-5 fontBold">会员一</p>
+                  <p class="my-2">￥ <span class="burn-price">0</span></p>
+                  <p class="burn-priceOk lineThrough">￥15</p>
+                  <p class="px-2">会员一的描述：会员一可以免费烧录少量商品。</p>
+                </div>
+                <div class="card pay-priceWrap flex justify-content-center flex-column align-items-center" data-price="15">
+                  <p class="fs-5 fontBold">会员二</p>
+                  <p class="my-2">￥ <span class="burn-price">15</span></p>
+                  <p class="burn-priceOk lineThrough">￥249</p>
+                  <p class="px-2">会员二的描述：会员一可以免费烧录多个商品。</p>
+                </div>
+                <div  class="card pay-priceWrap flex justify-content-center flex-column align-items-center" data-price="99">
+                  <p class="fs-5 fontBold">会员三</p>
+                  <p class="my-2">￥ <span class="burn-price">99</span></p>
+                  <p class="burn-priceOk lineThrough">￥499</p>
+                  <p class="px-2">会员三的描述：会员一可以免费烧录大部分商品。</p>
+                </div>
+              </div>
+
+              <div class="my-3 card border-0 iotWrap d-flex flex-row justify-content-center align-items-center ">
+                <img onclick="payOk()" style="width: 10rem" src="../static/images/logoCode.png" alt="">
+                <div class="mx-2">
+                  <p><span class="iconfont icon-pay_success text-success margonR5"></span>微信支付</p>
+                  <p>微信扫码,支付<span id="payMemberPrice"></span>元</p>
+                </div>
+              </div>
+              <div class="d-flex flex-row align-center">
+                <input class="margonR5" type="checkbox" style="transform: scale(1.3)" checked name="payAuto" id="payAuto"><span>开启自动续费</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 激活弹窗 -->
+      <div class="modal" id="activationCodeModal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">产品激活</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center align-center">
+              <label for="activationCodeValue">激活码:</label>
+              <input class="border marginL10" type="text" name="activationCodeValue" id="activationCodeValue" placeholder="请输入你的产品激活码">
+              <div class="mx-2 activationCodeHint"></div>
+            </div>
+            <div id="showBuyActivationCode" class=" showNone modal-body justify-content-center flex-column align-center">
+              <img style="width: 12rem" src="../static/images/logoCode.png" onclick="buyActivationCodeOk()" >
+              <div>微信支付：15元</div>
+              <div>请扫描二维码购买</div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-warning text-white" onclick="buyActivationCode()" >购买</button>
+<!--              <button type="button" class="btn btn-warning text-white" onclick="buyActivationCode()" >购买</button>-->
+              <button type="button" class="btn btn-success " onclick="clearInput('activationCode')" >清空</button>
+              <button type="button" class="btn btn-primary " onclick="confirmActivationCode()">激活</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 提示 弹窗-->
+      <div class="modal" id="hintModal" style="z-index: 99999">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title fs-5">提示</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center  align-center">
+              <p class="fs-6" id="hintText"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary " id="cancelBut"  onclick="hintCancel()" data-bs-dismiss="modal">取消</button>
+              <button type="button" class="btn btn-primary " id="confirmBut" onclick="hintConfirm()"  data-bs-dismiss="modal">确认</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 个人信息 弹窗-->
+      <div class="modal" id="personalModal">
+        <div class="modal-dialog modal-lg modal-dialog-centered" style="width: 680px !important;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title fs-5">个人信息</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center  align-center">
+              <div class="w-100">
+                <div class="row mb-3 d-flex align-items-center">
+                  <label class="col-sm-2 col-form-label">昵称 :</label>
+                  <div class="col-sm-7">
+                    <input id="personalNick" type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3 d-flex align-items-center">
+                  <label class="col-sm-2 col-form-label">
+                    <span>手机号 :</span>
+                    <div class="hintInpPhone"><span style="color: transparent">空</span></div>
+                  </label>
+                  <div class="col-sm-7">
+                    <input id="personalPhone" type="text" class="form-control">
+                    <div class="hintInpPhone hintInpPhoneText size85Rem text-success"></div>
+                  </div>
+                  <div class="col-sm-2 mx-2">
+                    <button id="changePhoneBut" class="btn btn-primary">更换手机号</button>
+                    <div class="hintInpPhone"><span style="color: transparent">空</span></div>
+                  </div>
+                </div>
+                <div id="personalCodeWrap" class="row mb-3  align-items-center">
+                  <label class="col-sm-2 col-form-label">
+                    <span>验证码 :</span>
+                    <div class="hintPersonalCode showNone"><span style="color: transparent">空</span></div>
+                  </label>
+                  <div class="col-sm-7">
+                    <input id="personalCode" type="text" class="form-control" placeholder="请输入验证码">
+                    <div class="hintPersonalCode hintPersonalCodeText showNone"><span style="color: transparent">空</span></div>
+                  </div>
+                  <div class="col-sm-2 mx-2">
+                    <button id="personalCodeBut" class="btn btn-primary">确<span style="color: transparent">空</span>认</button>
+                    <div class="hintPersonalCode showNone"><span style="color: transparent">空</span></div>
+                  </div>
+                </div>
+                <div class="row mb-3 d-flex align-items-center">
+                  <label class="col-sm-2 col-form-label">
+                    <span>姓名 :</span>
+                    <div class="hintInpText personalNameHint"><span style="color: transparent">空</span></div>
+                  </label>
+                  <div class="col-sm-7">
+                    <input type="text" id="personalName" class="form-control" >
+                    <div class="hintInpText size85Rem text-danger personalNameHint">请输入真实姓名</div>
+                  </div>
+                </div>
+                <div class="row mb-3 d-flex align-items-center">
+                  <label class="col-sm-2  col-form-label">
+                    <span>身份证号 :</span>
+                    <div class="hintInpText personalCordHint"><span style="color: transparent">空</span></div>
+                  </label>
+                  <div class="col-sm-7">
+                    <input id="personalCord"  type="text" class="form-control">
+                    <div class="hintInpText personalCordHint size85Rem text-danger ">请输入18位真实身份证号</div>
+                  </div>
+                  <div class="col-sm-2 mx-2">
+                    <button id="authenticationBut" class="btn btn-primary">认<span style="color: transparent">空</span>证</button>
+                    <div class="hintInpText personalCordHint"><span style="color: transparent">空</span></div>
+                  </div>
+                </div>
+                <div class="row mb-3 d-flex align-items-center">
+                  <label class="col-sm-2 col-form-label"></label>
+                  <div class="col-sm-7 text-center" id="authenticationRes">认证成功</div>
+                </div>
+                <div class="vwBundleOk row mb-3 align-items-center">
+                  <label class="col-sm-2 col-form-label">绑定微信 :</label>
+                  <div class="col-sm-10">
+                    <span>WX12346579</span>
+                    <span class="pointer underline" onclick="unbundleWx()">解绑</span>
+                  </div>
+                </div>
+                <div class="vwBundleNo row mb-3  align-items-center">
+                  <label class="col-sm-2 col-form-label">绑定微信 :</label>
+                  <div class="col-sm-10">
+                    <span>未绑定，请扫描微信二维码绑定</span>
+                  </div>
+                </div>
+                <div class="vwBundleNo row mb-3  align-items-center">
+                  <div class="col-sm-12 d-flex justify-content-center">
+                    <img onclick="bundleWx()" style="width: 12rem" src="../static/images/logoCode.png" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 日志信息 弹窗-->
+      <div class="modal" id="logIngModal">
+        <div class="modal-dialog modal-lg modal-dialog-centered" style="width: 680px !important;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title fs-5">日志详情</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center  align-center">
+              <div class="w-100" style="height: 75vh;overflow: auto" id="logIngContent">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="../static/bootstrap/bootstrap.bundle.min.js"></script>
+
+  <script src="../js/page/util.js"></script>
+  <script src="../js/native.js"></script>
+  <script src="../js/page/proxy.js"></script>
+
+  <script src="../js/page/index.js"></script>
+
+</body>
+</html>

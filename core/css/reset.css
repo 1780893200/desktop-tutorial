@@ -1,0 +1,25 @@
+/*初始化*/
+html,
+body,
+p,
+ul,
+li,
+div,
+input,
+button,
+select{
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+a{
+  text-decoration: none;
+  color: #333;
+}
+ul，li{
+  list-style: none;
+}
+input,select{
+  outline: none; /*取消focus样式*/
+}
+
